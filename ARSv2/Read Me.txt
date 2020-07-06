@@ -1,0 +1,168 @@
+******************************
+Assistance Recording System v2
+******************************
+
+Table of Contents:
+
+I. How to run web application
+I.A. How to open PhpMyAdmin
+II. Files Explained 
+II.A. ARSv2 Folder 
+II.B. Request Folder
+II.C. IT-EQ-WS Folder
+
+*******************************************************************
+
+Chapter I. How to run web application:
+
+1. Go to C:\xampp
+2. Open xampp-control.exe executable 
+3. Start Apache 
+4. Start MySQL 
+
+XAMPP version used: 7.2.27 
+
+Chapter I.A. How to open PhpMyAdmin:
+
+1. Once XAMPP Control Panel is opened, 
+click the "Admin" button of MySQL. On 
+your default it will open PhpMyAdmin.
+
+********************************************************************
+
+Chapter II. Files Explained
+
+First you need to go C:\xampp stack folder, and go on find "htdocs".
+Navigate to that folder, there you will find 3 folders that I made which
+contains versions of ARS. Versions 1 and 2. 
+
+Go ahead and open ARSv2 to access the files.
+
+The basic setup of this web application is there is a responsive side bar navigation,
+and on the right side is where the magic happens.
+
+*********************************************************************
+/!\ WARNING: DO NOT TOUCH THE VARIOUS JS/JQUERY AND PHP SCRIPTS /!\
+		unless you know what you are doing 
+*********************************************************************
+Chapter II.A. ARSv2 Folder:
+
+1. "config.php" - Basically, this is the php file that I call in all of the
+php files in the system. This connects the web application to PhpMyAdmin. Check the php
+files (includes(../config)).
+
+2. "Home.php" - This is the welcome page after logging in.
+
+3. "Login.php" - Login form and login php script is located with validation.
+
+4. "Logout.php" - Destroys the user's session. 
+
+5. "Register.php" - Contains the registration form.
+
+Folders:
+
+1. Assets: Miscellaneous css, js, img files 
+2. CSS: css folder
+3. Images: image folder
+4. IT-EQ-WS: Folder for IT Equipment, IT Workstation, History files (More on inventory)
+5. Request: Folder for CRU operations for the web app. STRICTLY NO DELETES FOR AUDITING 
+PURPOSES. 
+6. Signatures: This is where signature files are stored.
+
+**********************************************************************
+
+Chapter II.B. Request Folder:
+
+Don't mind the various js json ttf files. 
+
+1. "Create-Request.php" -This is where the create request form is located once filled up,
+it will pass the data to "Insert-Request.php".
+
+2. "Insert-Request.php" -There is a php script here to insert data to the database.
+
+3. "View-Request.php" -This is the page that holds an iframe ("iframe-View-Requests.php") of displaying the table.
+At the bottom of the page contains the generate reports ("Request-Report.php") in pdf form, if you compare it to the v1, the v1 generates
+csv report. 
+
+4. "iframe-View-Requests.php" -This contains a php script that calls all the files from the database to a table,
+at the very right of a data row you will see an edit button that will redirect you to ("Edit-Request.php").
+
+5. "Edit-Request.php" -This contains the form for editing or finishing the request, you will find date accomplished field,
+you will also see a dropdown menu to update the status. Once you choose "done" as the status a signature form will appear.
+After the request is done you CANNOT edit it anymore.
+
+6. "Request-Report.php" -This where you will find forms for generating pdf reports, you will find 3 forms.
+ 
+i. Generate by Date - "jspdf-dump.php" this is the connected php file for this.
+ii. Generate by Status - "jspdf-dump2.php" this is the connected php file for this.
+iii. Generate by the one who conducted the request/ticket - "jspdf-dump.php" this is the connected php file for this.
+
+7. "jspdf-dump/2/3.php" -This will generate a table preview and a download button on top, if you have a lot of files to 
+download it may take a while.
+
+**********************************************************************
+
+Chapter II.C. IT-EQ-WS Folder: 
+
+Don't mind the various js json ttf files.
+
+1. "IT-EQ-Form.php" -This is the first file of this part, this file contains the iframe ("iframe-EQ-Form.php") of the
+actual forms and other elements.
+
+2. "iframe-EQ-Form.php" -This contains various tabs which contains forms (creation and insertion of entries) and tables (display). IT Equipment and IT Workstations,
+beneath the tables are generate report buttons and on the right side of the data rows are edit buttons. 
+
+3. "IT-EQ-Edit.php" -This contains the edit form and php script for updating the row.
+
+4. "IT-WS-Edit.php" -This contains the edit form and php script for updating the row.
+
+5. "Equipment-Report.php" -This contains 2 forms.
+
+i. Generate by date - "jspdf-dump-ITE.php"
+ii. Generate by equipment owner - "jspdf-dump-ITE2.php"
+
+6. "Workstation-Report.php" - This contains 2 forms. 
+
+i. Generate by date - "jspdf-dump-ITWS.php"
+ii. Generate by equipment owner - "jspdf-dump-ITWS2.php"
+
+7. "jspdf-dump-ITE/WS /2.php" -This will generate a table preview and a download button on top, if you have a lot of files to 
+download it may take a while.
+
+8. "IT-Equipment-His.php" -This php file contains an iframe ("iframe-IT-EQ.php").
+
+9. "iframe-IT-EQ.php" -This file contains the request table but with no colored rows and there are search fields up top,
+for unit type and property number. On the bottom there is a button for report generation ("iframe-Request-Report-ITE.php").
+
+10. "iframe-Request-Report-ITE.php" -This file contains 2 forms for report generation.
+
+i. Generate by date - "jspdf-dump-ITEhis.php"
+ii. Generate by unit type and property number - "jspdf-dump-ITEhis2.php"
+
+11. "jspdf-dump-ITEhis/2.php" -This will generate a table preview and a download button on top, if you have a lot of files to 
+download it may take a while.
+
+12. "iframe-IT-WS.php" -This file contains the request table but with no colored rows and there are search fields up top,
+for property number. On the bottom there is a button for report generation ("iframe-Request-Report-ITWS.php").
+
+13. "iframe-Request-Report-ITWS.php" -This file contains 2 forms for report generation.
+
+i. Generate by date and property no. - "jspdf-dump-ITWShis.php"
+ii. Generate by property number - "jspdf-dump-ITWShis2.php"
+
+14. "jspdf-dump-ITWShis/2.php" -This will generate a table preview and a download button on top, if you have a lot of files to 
+download it may take a while.
+
+15. "CSV-Upload-EQ.php" -This file contains instructions on how to upload IT Equipment entries via CSV, you can also download
+a template and there is an upload form with upload php script. PLEASE FOLLOW THE EXAMPLE, IF NOT IT WILL CAUSE AN ERROR OR IMPROPER ENTRIES.
+
+16. "CSV-Upload-WS.php" -This file contains instructions on how to upload IT Workstations entries via CSV, you can also download
+a template and there is an upload form with upload php script. PLEASE FOLLOW THE EXAMPLE, IF NOT IT WILL CAUSE AN ERROR OR IMPROPER ENTRIES.
+
+************************************************************************
+
+--END OF FILE--
+
+Good luck! :) -Keem
+
+   
